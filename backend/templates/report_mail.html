@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report of Flash Card App</title>
+    </head>
+    <body>
+        Dear {{data['username']}},<br>
+        <h3>This is your monthly report for the previous month.</h3><br>
+<!-- {{data['report']}} -->
+        <h1>REPORT:</h1><br><br>
+<!--  -->
+        <p>Decks you revised previous month:</p>
+        {% if data['report']['visited_decks']|length >0 %}
+        <ul>
+            {%for d in data['report']['visited_decks']  -%}
+            <li>{{d}}</li>
+            {% endfor %}
+        </ul><br>
+        {% else %}
+        <p>None</p><br><br>
+        {% endif %}
+<!--  -->
+        <p>Decks you did not revise in the previous month:</p>
+        {% if data['report']['visited_decks']|length >0 %}
+        <ul>
+            {%for d in data['report']['unvisited_decks']  -%}
+            <li>{{d}}</li>
+            {% endfor %}
+        </ul><br>
+        {% else %}
+        <p>None</p><br><br>
+        {% endif %}
+<!--  -->
+        <p>Decks you never revised after creating:</p>
+        {% if data['report']['visited_decks']|length >0 %}
+        <ul>
+            {%for d in data['report']['never_visited_decks']  -%}
+            <li>{{d}}</li>
+            {% endfor %}
+        </ul><br>
+        {% else %}
+        <p>None</p><br><br>
+        {% endif %}
+<!--  -->
+        <p>Scores of all decks you own:</p>
+        <ul>
+            {%for ds in data['report']['scores']  -%}
+            <li>{{ds}} => {{data['report']['scores'][ds]}}</li>
+            {% endfor %}
+        </ul><br>
+<!--  -->
+        <p>Average difficulty of all decks you own:</p>
+        <ul>
+            {%for ad in data['report']['average_difficulty']  -%}
+            <li>{{ad}} => {{data['report']['average_difficulty'][ad]}}</li>
+            {% endfor %}
+        </ul><br>
+<!--  -->
+        <br><br>
+        Click <a href="http://10.1.1.42:8081">here</a> to go to app page<br><br>
+        Regards,<br>
+        Your App
+    </body>
+</html>
