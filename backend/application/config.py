@@ -5,12 +5,12 @@ class Config():
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = None
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    CELERY_BROKER_URL = "redis://10.1.1.43:6379/1"
-    CELERY_RESULT_BACKEND = "redis://10.1.1.43:6379/2"
+    CELERY_BROKER_URL = "redis://localhost:6379/1"
+    CELERY_RESULT_BACKEND = "redis://localhost:6379/2"
     CELERY_TIMEZONE = "Asia/Kolkata"
-    REDIS_URL = "redis://10.1.1.43:6379"
+    REDIS_URL = "redis://localhost:6379"
     CACHE_TYPE="RedisCache"
-    CACHE_REDIS_HOST="10.1.1.43"
+    CACHE_REDIS_HOST="localhost"
     CACHE_REDIS_PORT=6379
 
 class LocalDevConfig(Config):

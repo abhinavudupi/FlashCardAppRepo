@@ -38,12 +38,8 @@ def create_app():
 app, celery, cache = create_app()
 
 from application.apiEndpoints import *
-# from application.controllers import *
-# from application.apiEndpoints import LoginAPI, SignupAPI, UserdeckResource, UserallResource
-# from application.apiEndpoints import DeckallResource, DeckResource, DeckcardResource, CardallResource
-# from application.apiEndpoints import CardallResource, CardResource, ExportDeckResource, ImportDeckResource, UserResource
 
-app.register_blueprint(sse, url_prefix='/stream')
+# app.register_blueprint(sse, url_prefix='/stream')
 
 
 if __name__ == '__main__':
